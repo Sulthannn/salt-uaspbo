@@ -112,7 +112,9 @@
               {% for berita in artikel %}
               <div class="property-item">
                 <a href="{{ berita.link }}" class="img">
-                  <img style="height: 350px;" src="{% static berita.img %}" alt="Image" class="img-fluid" />
+                  {% if berita.img %}
+                  <img style="height: 350px;" alt="Image" class="img-fluid" src="{{berita.img.url}}" alt="">
+                   {% endif %}
                 </a>
 
                 <div class="property-content">

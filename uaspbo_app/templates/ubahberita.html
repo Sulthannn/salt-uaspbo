@@ -16,7 +16,7 @@
         </div>
         <div  class="card-body">
         
-                <form action="{% url 'update2' berita.pk %}" method="post">
+                <form action="{% url 'update2' berita.pk %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <br>

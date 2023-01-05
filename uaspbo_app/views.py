@@ -64,7 +64,7 @@ def garamadmin(request):
 @login_required(login_url=settings.LOGIN_URL)
 def tambahberita(request):
     if request.POST:
-        form = FormBerita(request.POST)
+        form = FormBerita(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = FormBerita()
@@ -118,7 +118,9 @@ def tambahgaram(request):
 def ubahberita(request, id):
     ubahartikel = Berita.objects.get(pk=id)
     if request.POST:
-        form = FormBerita(request.POST, instance=ubahartikel)
+        if request.FILES:
+            ubahartikel.img.delete()
+        form = FormBerita(request.POST, request.FILES, instance=ubahartikel)
         if form.is_valid():
             form.save()
             pesan = "Berita Berhasil Diubah!"
@@ -141,6 +143,7 @@ def ubahberita(request, id):
 @login_required(login_url=settings.LOGIN_URL) 
 def deleteberita(request, id):
     berita = Berita.objects.get(pk=id)
+    berita.img.delete()
     berita.delete()
     
     return redirect("/berita/")

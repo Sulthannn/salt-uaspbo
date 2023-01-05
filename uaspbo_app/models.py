@@ -34,7 +34,7 @@ class Berita(models.Model):
    judul = models.CharField(max_length=100)
    isi = models.TextField()
    link = models.CharField(max_length=100)
-   img = models.CharField(null=True, max_length=40)
+   img = models.FileField(upload_to='artikel/', null=True)
    macam_id = models.ForeignKey(Macam, on_delete=models.CASCADE, null=True)
    
    def __str__(self):

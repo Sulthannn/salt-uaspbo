@@ -76,7 +76,9 @@
                 <td>{{ berita.macam_id }}</td>
                 <td>{{ berita.isi }}</td> 
                 <td>{{ berita.link }}</td> 
-                <td><img width="100px" src="{% static berita.img %}" alt=""></td>
+                 {% if berita.img %}
+               <td><img width="100px" src="{{berita.img.url}}" alt=""></td>
+                {% endif %}
                 <td>
           <a class="btn btn-success" href="{% url 'update2' berita.pk %}"  role="button"><i class="icon-edit"></i></a>  
           <a class="btn btn-warning" href="#" role="button" onclick="hapusberita('{{ berita.pk }}', '{{ berita.judul }}')"><i class="icon-trash"></i></a>

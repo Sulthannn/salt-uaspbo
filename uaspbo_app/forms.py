@@ -28,6 +28,6 @@ class FormBerita(ModelForm):
             'judul' : forms.TextInput({'class':'form-control', 'placeholder':'Judul', 'required':'required'}),
             'isi' : forms.TextInput({'class':'form-control', 'placeholder':'Isi', 'required':'required'}),
             'link' : forms.TextInput({'class':'form-control', 'placeholder':'Link', 'required':'required'}),
-            'img' : forms.TextInput({'class':'form-control', 'placeholder':'Gambar (Ketentuan: Pilih salt1.jpg-salt ke-n.jpg)', 'required':'required'}),    
+            'img' : forms.FileInput({'class':'form-control', 'placeholder':'Gambar (Ketentuan: Pilih salt1.jpg-salt ke-n.jpg)', 'required':'required'}),    
             'macam_id' : forms.Select({'class':'form-control', 'placeholder':'Macam Berita', 'required':'required'}),
         }
